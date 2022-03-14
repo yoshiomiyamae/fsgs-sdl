@@ -1,0 +1,38 @@
+{
+  "tasks": [
+    {
+      "type": "cppbuild",
+      "label": "C/C++: g++-11 アクティブなファイルのビルド",
+      "command": "/home/linuxbrew/.linuxbrew/bin/g++-11",
+      "args": [
+        "-std=c++17", "-Wall",
+        "-fdiagnostics-color=always",
+        "-g",
+        "src/*.cpp",
+        "-o",
+        "${workspaceFolder}/FSGS",
+        "-lSDL2", "-lGL", "-lGLEW", "-lSDL2_ttf"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": [
+        "$gcc"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "detail": "デバッガーによって生成されたタスク。",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": true,
+        "clear": false
+      }
+    }
+  ],
+  "version": "2.0.0"
+}
