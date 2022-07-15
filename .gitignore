@@ -30,7 +30,9 @@
 *.exe
 *.out
 *.app
-FSGS
+
+*.pdb
+*.ilk
 
 # Fonts
 Cica-Regular.ttf

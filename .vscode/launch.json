@@ -5,30 +5,16 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "g++-11 - アクティブ ファイルのビルドとデバッグ",
-      "type": "cppdbg",
+      "name": "cl.exe - アクティブ ファイルのビルドとデバッグ",
+      "type": "cppvsdbg",
       "request": "launch",
-      "program": "${workspaceFolder}/FSGS",
+      "program": "${workspaceFolder}/FSGS.exe",
       "args": [],
       "stopAtEntry": false,
       "cwd": "${workspaceFolder}",
       "environment": [],
-      "externalConsole": false,
-      "MIMode": "gdb",
-      "setupCommands": [
-        {
-          "description": "gdb の再フォーマットを有効にする",
-          "text": "-enable-pretty-printing",
-          "ignoreFailures": true
-        },
-        {
-          "description": "逆アセンブリ フレーバーを Intel に設定",
-          "text": "-gdb-set disassembly-flavor intel",
-          "ignoreFailures": true
-        }
-      ],
-      "preLaunchTask": "C/C++: g++-11 アクティブなファイルのビルド",
-      "miDebuggerPath": "/usr/bin/gdb"
+      "console": "internalConsole",
+      "preLaunchTask": "C/C++: cl.exe アクティブなファイルのビルド"
     }
   ]
 }

@@ -1,38 +1,39 @@
 {
+  "version": "2.0.0",
   "tasks": [
     {
       "type": "cppbuild",
-      "label": "C/C++: g++-11 アクティブなファイルのビルド",
-      "command": "/home/linuxbrew/.linuxbrew/bin/g++-11",
+      "label": "C/C++: cl.exe アクティブなファイルのビルド",
+      "command": "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/VC/Tools/MSVC/14.31.31103/bin/Hostx64/x64/cla.exe",
       "args": [
-        "-std=c++17", "-Wall",
-        "-fdiagnostics-color=always",
-        "-g",
-        "src/*.cpp",
-        "-o",
-        "${workspaceFolder}/FSGS",
-        "-lSDL2", "-lGL", "-lGLEW", "-lSDL2_ttf"
+        "/Zi",
+        "/EHsc",
+        "/source-charset:utf-8",
+        "/std:c++17",
+        "/Od",
+        "/Fe:",
+        "${workspaceFolder}/FSGS.exe",
+        "${workspaceFolder}/*.cpp",
+        "/link",
+        "SDL2.lib",
+        "SDL2main.lib",
+        "SDL2test.lib",
+        "SDL2_ttf.lib",
+        "Shell32.lib",
+        "libucrt.lib",
+        "libcpmt.lib",
+        "/SUBSYSTEM:WINDOWS"
       ],
       "options": {
-        "cwd": "${workspaceFolder}"
+        "cwd": "${workspaceFolder}",
+        "env": {
+          "INCLUDE": "C:/SDL2-2.0.20/include;C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/VC/Tools/MSVC/14.31.31103/include;C:/Program Files (x86)/Windows Kits/NETFXSDK/4.7.1/include/um;C:/Program Files (x86)/Windows Kits/10/include/10.0.19041.0/ucrt;C:/Program Files (x86)/Windows Kits/10/include/10.0.19041.0/shared;C:/Program Files (x86)/Windows Kits/10/include/10.0.19041.0/um;C:/Program Files (x86)/Windows Kits/10/include/10.0.19041.0/winrt;C:/Program Files (x86)/Windows Kits/10/include/10.0.19041.0/cppwinrt;",
+          "LIB": "C:/SDL2-2.0.20/lib/x64;C:/Program Files (x86)/Windows Kits/10/Lib/10.0.19041.0/um/x64;C:/Program Files (x86)/Windows Kits/10/Lib/10.0.19041.0/ucrt/x64;C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/VC/Tools/MSVC/14.31.31103/lib/x64;"
+        }
       },
-      "problemMatcher": [
-        "$gcc"
-      ],
-      "group": {
-        "kind": "build",
-        "isDefault": true
-      },
-      "detail": "デバッガーによって生成されたタスク。",
-      "presentation": {
-        "echo": true,
-        "reveal": "always",
-        "focus": false,
-        "panel": "shared",
-        "showReuseMessage": true,
-        "clear": false
-      }
+      "problemMatcher": ["$msCompile"],
+      "group": "build",
+      "detail": "コンパイラ: cl.exe"
     }
-  ],
-  "version": "2.0.0"
+  ]
 }
