@@ -29,7 +29,7 @@ namespace FSGS
       m_renderer = SDL_CreateRenderer(
           m_window,
           -1,
-          SDL_RENDERER_ACCELERATED);
+          SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 
       if (!m_renderer)
       {
