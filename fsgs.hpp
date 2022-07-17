@@ -4,10 +4,9 @@
 
 #include <SDL.h>
 #include <SDL_ttf.h>
+#include <yaml-cpp/yaml.h>
 
 #include "error.hpp"
-#define FONT_PATH "Cica-Regular.ttf"
-#define FPS 60.0
 
 namespace FSGS
 {
@@ -31,9 +30,13 @@ namespace FSGS
 
   private:
     bool m_running;
+
+    Uint32 m_fps;
+
     SDL_Window *m_window;
     SDL_Renderer *m_renderer;
 
+    std::string m_fontPath;
     TTF_Font *m_font;
 
     Uint64 m_performanceFrequency;

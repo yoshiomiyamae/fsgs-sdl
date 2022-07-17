@@ -65,7 +65,9 @@
     "xtree": "cpp",
     "xutility": "cpp",
     "regex": "cpp",
-    "any": "cpp"
+    "any": "cpp",
+    "set": "cpp",
+    "array": "cpp"
   },
   "cmake.outputLogEncoding": "shift-jis",
   "cSpell.ignoreWords": ["Cica", "FSGS", "WINDOWPOS"],

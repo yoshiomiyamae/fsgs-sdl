@@ -1,4 +1,5 @@
 #include "fsgs.hpp"
+#include "config.hpp"
 
 namespace FSGS
 {
@@ -6,8 +7,9 @@ namespace FSGS
   {
     try
     {
-      auto cwd = std::filesystem::current_path();
-      std::cout << "CWD: " << cwd << std::endl;
+      Config *config = Config::getInstance();
+      m_fontPath = config->get<std::string>("system.font");
+      m_fps = config->get<Uint32>("system.fps");
       if (SDL_Init(SDL_INIT_EVERYTHING) < 0)
       {
         throw InitFailedException();
@@ -42,7 +44,7 @@ namespace FSGS
       }
 
       m_font = TTF_OpenFont(
-          FONT_PATH,
+          m_fontPath.c_str(),
           40);
 
       if (!m_font)
@@ -51,7 +53,7 @@ namespace FSGS
       }
 
       m_performanceFrequency = SDL_GetPerformanceFrequency();
-      m_countPerFrame = m_performanceFrequency / FPS;
+      m_countPerFrame = m_performanceFrequency / m_fps;
 
       m_running = true;
     }

@@ -22,13 +22,14 @@
         "Shell32.lib",
         "libucrt.lib",
         "libcpmt.lib",
+        "libyaml-cppmd.lib",
         "/SUBSYSTEM:WINDOWS"
       ],
       "options": {
         "cwd": "${workspaceFolder}",
         "env": {
-          "INCLUDE": "C:/SDL2-2.0.22/include;C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/VC/Tools/MSVC/14.32.31326/include;C:/Program Files (x86)/Windows Kits/NETFXSDK/4.8.2/include/um;C:/Program Files (x86)/Windows Kits/10/include/10.0.22621.0/ucrt;C:/Program Files (x86)/Windows Kits/10/include/10.0.22621.0/shared;C:/Program Files (x86)/Windows Kits/10/include/10.0.22621.0/um;C:/Program Files (x86)/Windows Kits/10/include/10.0.22621.0/winrt;C:/Program Files (x86)/Windows Kits/10/include/10.0.22621.0/cppwinrt;",
-          "LIB": "C:/SDL2-2.0.22/lib/x64;C:/Program Files (x86)/Windows Kits/10/Lib/10.0.22621.0/um/x64;C:/Program Files (x86)/Windows Kits/10/Lib/10.0.22621.0/ucrt/x64;C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/VC/Tools/MSVC/14.32.31326/lib/x64;"
+          "INCLUDE": "C:/src/SDL2-2.0.22/include;C:/src/yaml-cpp-yaml-cpp-0.6.0/include;C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/VC/Tools/MSVC/14.32.31326/include;C:/Program Files (x86)/Windows Kits/NETFXSDK/4.8.2/include/um;C:/Program Files (x86)/Windows Kits/10/include/10.0.22621.0/ucrt;C:/Program Files (x86)/Windows Kits/10/include/10.0.22621.0/shared;C:/Program Files (x86)/Windows Kits/10/include/10.0.22621.0/um;C:/Program Files (x86)/Windows Kits/10/include/10.0.22621.0/winrt;C:/Program Files (x86)/Windows Kits/10/include/10.0.22621.0/cppwinrt;",
+          "LIB": "C:/src/SDL2-2.0.22/lib/x64;C:/src/yaml-cpp-yaml-cpp-0.6.0/build/MinSizeRel;C:/Program Files (x86)/Windows Kits/10/Lib/10.0.22621.0/um/x64;C:/Program Files (x86)/Windows Kits/10/Lib/10.0.22621.0/ucrt/x64;C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/VC/Tools/MSVC/14.32.31326/lib/x64;"
         }
       },
       "problemMatcher": ["$msCompile"],
