@@ -8,8 +8,6 @@
 #include "error.hpp"
 #define FONT_PATH "Cica-Regular.ttf"
 #define FPS 60.0
-#define MS_PER_S 1000.0
-#define MS_PER_FRAME (MS_PER_S / FPS)
 
 namespace FSGS
 {
@@ -21,7 +19,7 @@ namespace FSGS
     void event();
     void update();
     void render();
-    void fps();
+    void fps(double duration);
     void mainLoop();
 
     const std::string getSdlError();
@@ -38,6 +36,8 @@ namespace FSGS
 
     TTF_Font *m_font;
 
+    Uint64 m_performanceFrequency;
+    Uint64 m_countPerFrame;
     Uint64 m_lastTicks;
   };
 }

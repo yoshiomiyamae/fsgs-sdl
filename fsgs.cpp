@@ -29,7 +29,7 @@ namespace FSGS
       m_renderer = SDL_CreateRenderer(
           m_window,
           -1,
-          SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+          SDL_RENDERER_ACCELERATED);
 
       if (!m_renderer)
       {
@@ -49,6 +49,9 @@ namespace FSGS
       {
         throw CreatFontFailedException();
       }
+
+      m_performanceFrequency = SDL_GetPerformanceFrequency();
+      m_countPerFrame = m_performanceFrequency / FPS;
 
       m_running = true;
     }
@@ -97,6 +100,7 @@ namespace FSGS
   void Game::cleanUp()
   {
     TTF_Quit();
+    SDL_DestroyRenderer(m_renderer);
     SDL_DestroyWindow(m_window);
     SDL_Quit();
   }
@@ -155,18 +159,10 @@ namespace FSGS
     SDL_RenderPresent(m_renderer);
   }
 
-  void Game::fps()
+  void Game::fps(double duration)
   {
-    Uint64 ticks = SDL_GetTicks64();
-    Uint64 duration = ticks - m_lastTicks;
-    Uint8 fps = MS_PER_S / (double)(ticks - m_lastTicks);
+    Uint8 fps = m_performanceFrequency / duration;
     renderText(std::to_string(fps), {0x00, 0xFF, 0x00, 0x7F}, {0, 0});
-    m_lastTicks = ticks;
-    int waitTime = MS_PER_FRAME - duration;
-    if (waitTime > 0)
-    {
-      SDL_Delay(waitTime);
-    }
   }
 
   const std::string Game::getSdlError()
@@ -182,8 +178,14 @@ namespace FSGS
       {
         event();
         update();
-        fps();
-        render();
+        Uint64 ticks = SDL_GetPerformanceCounter();
+        Uint64 duration = ticks - m_lastTicks;
+        if (duration > m_countPerFrame)
+        {
+          m_lastTicks = ticks;
+          fps((double)duration);
+          render();
+        }
       }
     }
     catch (FSGS::Exception &e)
