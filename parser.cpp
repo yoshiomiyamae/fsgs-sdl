@@ -90,6 +90,16 @@ namespace FSGS
 
   OperationCollection Parser::analyze(std::string script)
   {
+    OperationCollection output;
+    bool inTag = false;
+    bool inText = false;
+    bool inParam = false;
+    std::string temp = "";
+    std::string tagName = "";
+    std::string paramName = "";
+    ParameterCollection tagParams;
+    bool inScript = false;
+
     return OperationCollection{};
   }
 
