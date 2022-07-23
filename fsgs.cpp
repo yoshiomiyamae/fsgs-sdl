@@ -8,19 +8,17 @@ namespace FSGS
     try
     {
       Config *config = Config::getInstance();
-      m_fontPath = config->get<std::string>("system.font");
-      m_fps = config->get<Uint32>("system.fps");
       if (SDL_Init(SDL_INIT_EVERYTHING) < 0)
       {
         throw InitFailedException();
       }
 
       m_window = SDL_CreateWindow(
-          "FSGS",
+          config->get<std::string>("system.title").c_str(),
           SDL_WINDOWPOS_UNDEFINED,
           SDL_WINDOWPOS_UNDEFINED,
-          640,
-          480,
+          config->get<int>("system.window_size.width"),
+          config->get<int>("system.window_size.height"),
           0);
 
       if (!m_window)
@@ -44,7 +42,7 @@ namespace FSGS
       }
 
       m_font = TTF_OpenFont(
-          m_fontPath.c_str(),
+          config->get<std::string>("system.font").c_str(),
           40);
 
       if (!m_font)
@@ -53,6 +51,7 @@ namespace FSGS
       }
 
       m_performanceFrequency = SDL_GetPerformanceFrequency();
+      m_fps = config->get<Uint32>("system.fps");
       m_countPerFrame = m_performanceFrequency / m_fps;
 
       m_running = true;

@@ -36,7 +36,6 @@ namespace FSGS
     SDL_Window *m_window;
     SDL_Renderer *m_renderer;
 
-    std::string m_fontPath;
     TTF_Font *m_font;
 
     Uint64 m_performanceFrequency;

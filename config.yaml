@@ -1,3 +1,7 @@
 system:
+  title: "FSGS"
   fps: 60
   font: "Cica-Regular.ttf"
+  window_size:
+    width: 640
+    height: 480
