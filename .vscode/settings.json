@@ -70,7 +70,14 @@
     "array": "cpp"
   },
   "cmake.outputLogEncoding": "shift-jis",
-  "cSpell.ignoreWords": ["Cica", "FSGS", "WINDOWPOS"],
+  "cSpell.ignoreWords": [
+    "Cica",
+    "FSGS",
+    "WINDOWPOS",
+    "endscript",
+    "iscript",
+    "endmacro"
+  ],
   "C_Cpp.default.cppStandard": "c++17",
   "C_Cpp.default.cStandard": "c17",
   "editor.formatOnSave": true,
