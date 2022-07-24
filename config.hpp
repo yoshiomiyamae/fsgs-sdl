@@ -1,6 +1,7 @@
 #include <SDL.h>
 #include <string>
 #include <yaml-cpp/yaml.h>
+#include "common.hpp"
 
 namespace FSGS
 {
@@ -13,10 +14,8 @@ namespace FSGS
     template <typename T>
     T get(std::string path)
     {
-      std::stringstream ss(path);
-      std::string key;
       YAML::Node node = YAML::Clone(m_config);
-      while (std::getline(ss, key, '.'))
+      for (std::string key : split(path, '.'))
       {
         node = node[key];
       }
