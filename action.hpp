@@ -1,11 +1,11 @@
 namespace FSGS
 {
-  enum Actions
+  namespace Actions
   {
-    LABEL,
-    TEXT,
-    MACRO,
-    END_MACRO,
-    INLINE_SCRIPT,
+#define LABEL "label"
+#define TEXT "text"
+#define MACRO "macro"
+#define END_MACRO "endmacro"
+#define INLINE_SCRIPT "inlineScript"
   };
 }
